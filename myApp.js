@@ -57,4 +57,15 @@ app.get("/name", function (req, res) {
   });
 });
 
+app.post("/name", function (req, res) {
+  var firstName = req.body.first;
+  var lastName = req.body.last;
+  // OR you can destructure and rename the keys
+  var { first: firstName, last: lastName } = req.body;
+  // Use template literals to form a formatted string
+  res.json({
+    name: `${firstName} ${lastName}`,
+  });
+});
+
 module.exports = app;
